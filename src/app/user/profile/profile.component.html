@@ -1,0 +1,46 @@
+<div
+  style="text-align: center;background-color: black; color: white;   border-radius: 30px;  "
+  *ngIf="users"
+>
+  <h1>Update Profile</h1>
+  <div class="profile-image">
+    <img
+      width="120"
+      height="120"
+      class="margin-top mat-elevation-z1"
+      [src]="users.photoURL ?? '/assets/images/image-placeholder.png'"
+    />
+    <button mat-mini-fab (click)="inputField.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+  <input #inputField hidden type="file" (change)="uploadFile($event, users)" />
+ 
+
+  <form  [formGroup]="profileForm" (ngSubmit)="saveProfile(users)">
+    <div class="row" style="margin-top: 20px;">
+      <mat-form-field >
+        <input
+          type="text"
+          matInput
+          formControlName="displayName"
+          placeholder="Display Name" [ngModel]="displayName"
+        />
+      </mat-form-field>
+      <!-- <mat-form-field>
+        <input
+          type="number"
+          matInput
+          formControlName="phone"
+          placeholder="Phone"
+        />
+      </mat-form-field> -->
+    </div>
+    <button type="submit" class="margin-top" mat-raised-button  style=" background-color: rgb(57, 55, 55);color: white;">
+      Save
+    </button>
+    <button type="submit" class="margin-top" mat-raised-button  style=" background-color:  rgb(57, 55, 55); color: white;margin-left: 10px;" (click)="back()">
+      Back
+    </button>
+  </form>
+</div>

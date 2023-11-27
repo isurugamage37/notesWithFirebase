@@ -1,0 +1,13 @@
+<div class="note-detail">
+  <span>{{currentDate}}</span>
+  <label>Title</label>
+  <textarea [placeholder]="'Add Title'" (keyup)="textInputHandler()" class="note-textarea-title" [(ngModel)]="titleTextareaNg" (input)="onInputChange()" #titleTextarea>
+      {{note? note.title: ''}}
+    </textarea>
+  <label>Description</label>
+  <textarea [placeholder]="'Add Description'" (keyup)="textInputHandler()" class="note-textarea" [(ngModel)]="bodyTextareaNg" (input)="onInputChange()" #bodyTextarea>
+      {{note? note.body: ''}}
+    </textarea>
+</div>
+<button class="save-note-btn" (click)="saveNote()" [disabled]="isButtonDisabled">Save</button>
+<button class="save-note-btn" (click)="back()"  [disabled]="!isButtonDisabled">Back</button>

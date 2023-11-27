@@ -1,0 +1,27 @@
+<div class="form-container mat-elevation-z5"
+  style="text-align: center; margin-top: 150px; background-color: black;color: white; border-radius: 30px;">
+  <h1>Login</h1>
+  <form [formGroup]="loginForm">
+    <mat-form-field>
+      <input matInput placeholder="Email address" formControlName="email" style="border-radius: 30px;" />
+      <mat-error *ngIf="email?.errors?.['required']">
+        Email address is required
+      </mat-error>
+      <mat-error *ngIf="email?.errors?.['email']">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field style="margin-left: 10px;">
+      <input matInput type="password" placeholder="Password" formControlName="password" style="border-radius: 30px;" />
+      <mat-error *ngIf="password?.errors?.['required']">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+    <div class="center margin-top" style="margin-top: 10px;">
+      <button type="submit" mat-raised-button style="background-color:  rgb(57, 55, 55); color: white; "
+        (click)="submit()">Login</button>
+      <button type="submit" style="margin-left: 10px;background-color:  rgb(57, 55, 55); color: white;"
+        mat-raised-button (click)="signUp()">Sign up</button>
+    </div>
+  </form>
+</div>

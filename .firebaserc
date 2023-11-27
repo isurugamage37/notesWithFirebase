@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "notes-ddc9d": {
+      "hosting": {
+        "notes": [
+          "notes-ddc9d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "notes-ddc9d"
+  }
+}

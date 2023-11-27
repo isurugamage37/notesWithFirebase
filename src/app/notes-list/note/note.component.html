@@ -1,0 +1,47 @@
+<!-- <div class="row"> -->
+<div class="column">
+  <mat-card class="note" [ngClass]="note.selected? 'selected': ''" (mouseenter)="noteClickHandler()"
+    (mouseleave)="noteClickHandlerD()">
+    <!-- sub -->
+    <div class="note-title">{{note.title}}
+      <div class="action-buttons" *ngIf="showButtons">
+        <mat-icon class="edit-button" matTooltip='Edit Note' (click)="editNoteHandler(note)">edit </mat-icon>
+        <mat-icon class="delete-button" matTooltip='Delete Note' (click)="deleteNoteHandler(note)">delete </mat-icon>
+      </div>
+    </div>
+    <div class="note-detail">
+      <div class="note-date">
+        {{note.date}}
+      </div>
+      <div class="note-body">
+        {{note.body}}
+      </div>
+    </div>
+
+  </mat-card>
+</div>
+<!-- sub -->
+<!-- <div class="column" div *ngIf="i%2==1">
+      <mat-card class="note" [ngClass]="note.selected? 'selected': ''" (mouseenter)="noteClickHandler()"
+  (mouseleave)="noteClickHandlerD()">
+     
+      <div class="note-title">{{note.title}}
+        <div class="action-buttons" *ngIf="showButtons">
+          <mat-icon class="edit-button" matTooltip='Edit Note' (click)="editNoteHandler(note)">edit </mat-icon>
+          <mat-icon class="delete-button" matTooltip='Delete Note' (click)="deleteNoteHandler(note)">delete </mat-icon>
+        </div>
+      </div>
+      <div class="note-detail">
+        <div class="note-date">
+          {{note.date}}
+        </div>
+        <div class="note-body">
+          {{note.body}}
+        </div>
+      </div>
+
+    </mat-card>
+    </div> -->
+<!-- </div> -->
+
+<!-- <div *ngIf="i%2==0">jjjjjjjjj</div> -->

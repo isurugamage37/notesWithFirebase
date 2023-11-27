@@ -1,0 +1,8 @@
+<div class="list-container">
+  <div style="text-align: center;">
+    <button style="margin-top: 40px;" class="add-new-note-btn" (click)="addNoteHandler()">Add Note </button>
+  </div>
+  <app-note style="margin-top: 60px;" (noteClicked)="noteClickHandler(note)"
+    (showDetailsScreenCallEdit)="showDetailsScreenCallEdit()" [note]="note" [i]="i"
+    *ngFor="let note of click2() ; let i = index"> </app-note>
+</div>

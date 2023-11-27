@@ -1,0 +1,59 @@
+<div>
+  <mat-toolbar>
+    Note
+    <ng-container *ngIf="displayName; else loginButton">
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <img width="30" height="30" class="profile-image-toolbar" [src]="'assets/images/image-placeholder.png'"
+          [src]="photoURL" />
+        {{ displayName }}
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #loginButton>
+      <button mat-button routerLink="login" (click)="showLoginScreenCall($event)">
+        <mat-icon>login</mat-icon>
+        Login
+      </button>
+    </ng-template>
+  </mat-toolbar>
+
+  <div class="content">
+    <app-login #login [style.display]="(showLoginScreen)?'block':'none'"
+      (showListScreenCall)="showListScreenCall($event)"
+      (showSignUpScreenCall)="showSignUpScreenCall($event)"></app-login>
+  </div>
+
+  <div class="content">
+    <app-sign-up #signup [style.display]="(showSignUpScreen)?'block':'none'"
+      (showLoginScreenCall)="showLoginScreenCall($event)"></app-sign-up>
+  </div>
+  <!-- add -->
+  <div class="app-container">
+    <div class="main-container">
+      <app-notes-list *ngIf="!hideSideNav" #list [style.display]="(showListScreen)?'block':'none'"
+        (showDetailsScreenCall)="showDetailsScreenCall($event)"></app-notes-list>
+      <app-note-detail #detail [style.display]="(showDetailsScreen)?'block':'none'"
+        (showListScreenCall)="showListScreenCall($event)"></app-note-detail>
+    </div>
+  </div>
+
+  <div class="content">
+    <app-profile #profile [style.display]="(showProfileScreen)?'block':'none'"
+      (showListScreenCall)="showListScreenCall($event)"></app-profile>
+  </div>
+
+  <!-- end -->
+
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item routerLink="/profile" (click)="showProfileScreenCall($event)"
+      style=" background-color: black;color: white;">
+      <mat-icon> <img width="20" height="20" class="profile-image-toolbar" [src]="'assets/images/image-placeholder.png'"
+          [src]="photoURL" /></mat-icon>
+      Profile
+    </button>
+    <button mat-menu-item (click)="showLoginScreenCall($event)" style=" background-color: black;color: white;">
+      <mat-icon style=" background-color: rgb(0, 0, 0);color: white;">logout</mat-icon>
+      Logout
+    </button>
+  </mat-menu>
+</div>
